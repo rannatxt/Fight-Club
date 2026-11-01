@@ -1,25 +1,25 @@
-# Moonlit Rumble — Fight Club 16
+# Neon Legends — World Tour
 
-A standalone, pixel-art rooftop fighting game made with Canvas 2D and procedural Web Audio. The game runs directly in a modern browser; it has no build step, libraries, image downloads, or other external assets.
+A self-contained desktop arcade fighter made with Canvas 2D and procedural Web Audio. There are no libraries, image downloads, build steps, or external assets.
 
 ## Play
 
-Open `index.html` in a browser. A match begins after the short round intro. Press a key, tap the screen, or use an on-screen button to enable sound. WASD and click/touch controls are visible by default. Use **Options** to change match mode, CPU difficulty, audio levels, on-screen controls, and hitbox display.
+Open `index.html` in a modern browser. Choose an arena and CPU style, then press **Start Fight**. The match fills the desktop viewport; use the Full Screen button for browser fullscreen. Sound starts after your first button press.
 
 ## Controls
 
-| Player | Move | Light | Heavy | Special | Guard |
-| --- | --- | --- | --- | --- | --- |
-| Player 1 | WASD | J | K | L | I |
-| Player 2 | Arrow keys | Numpad 1 | Numpad 2 | Numpad 3 | Shift |
+- **A / D:** move; **W:** jump; **S:** duck
+- **J:** quick punch; **K:** heavy attack; **L:** Phoenix super; **I:** guard
+- Click the on-screen **Punch** and **Phoenix** buttons for the two main attacks.
+- **Esc:** pause or resume
 
-Choose **Local 2P** in Options to play against another person. The CPU option supports Easy and Hard difficulty.
+## World Tour
 
-## Included
+- **China:** Dragon Tower, a moonlit pagoda rooftop.
+- **India:** Vidhana Soudha-inspired Bengaluru stage.
+- **USA:** Main Event Dome, a fictional championship arena.
+- **Dubai:** Burj Afterdark, a night skyline and desert rooftop.
 
-- Fixed-step 60 Hz simulation with independent animation rendering.
-- A layered moonlit temple rooftop, tiled wooden floor, parallax clouds, and custom pixel fighters drawn in the canvas.
-- Fighter state machines, jump physics, boundaries, active attack frames, AABB hit and hurt boxes, blocking, damage, stun, knockback, hit-stop, sparks, projectiles, rounds, combos, scores, and a 99-second timer.
-- Responsive arcade HUD and a chrome-styled control deck.
-- Synthesized chiptune music, percussion, and combat sound effects using Web Audio.
-- Optional touch controls and hitbox visualization.
+## Survival circuit
+
+Defeat the CPU to survive each round. The rival becomes more aggressive as your run continues. Your score, rounds survived, and personal best are shown on the end card and saved in this browser.
