@@ -61,9 +61,10 @@
     .controls-help{max-width:1010px;margin:13px auto 0;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;color:#8d9db7;font:10px/1.6 ui-monospace,monospace}
     .keys-line strong{color:#d3e3fa;font-weight:700}
     .keycap{display:inline-block;margin:0 1px;padding:1px 5px;border:1px solid #394a68;border-radius:4px;background:#11182a;color:#c8d8ed;font:9px ui-monospace,monospace;box-shadow:0 1px #000}
-    .touch-controls{display:none;max-width:1010px;margin:9px auto 0;justify-content:space-between;gap:12px;overflow-x:auto;touch-action:none;user-select:none}
+    .touch-controls{display:none;max-width:1010px;margin:9px auto 0;justify-content:center;gap:18px;overflow-x:auto;touch-action:none;user-select:none}
     .touch-controls.visible{display:flex}
     .touch-group{display:flex;align-items:flex-end;gap:6px;flex-shrink:0}
+    .touch-group[hidden]{display:none}
     .touch-pad{display:grid;grid-template-columns:repeat(3,34px);grid-template-rows:repeat(2,34px);gap:4px;margin-right:7px}
     .touch-key{min-width:34px;min-height:34px;padding:4px;touch-action:none;user-select:none;-webkit-user-select:none;font:10px ui-monospace,monospace}
     .touch-key.action{min-width:43px;height:43px;border-radius:50%;font-size:9px;font-weight:800}
@@ -107,7 +108,7 @@
           <div class="setting"><label for="difficultySelect">CPU skill</label><select id="difficultySelect"><option value="easy">Easy · relaxed</option><option value="hard">Hard · sharp</option></select></div>
           <div class="setting"><label for="musicVolume">Music level</label><div class="range-row"><input id="musicVolume" type="range" min="0" max="100" value="30"><span class="range-value" id="musicValue">30%</span></div></div>
           <div class="setting"><label for="sfxVolume">Effects level</label><div class="range-row"><input id="sfxVolume" type="range" min="0" max="100" value="55"><span class="range-value" id="sfxValue">55%</span></div></div>
-          <div class="setting"><span class="setting-title">Touch deck</span><div class="toggle-row"><span>Show mobile buttons</span><input id="touchToggle" type="checkbox" aria-label="Show touch controls"></div></div>
+          <div class="setting"><span class="setting-title">Play controls</span><div class="toggle-row"><span>On-screen buttons</span><input id="touchToggle" type="checkbox" aria-label="Show on-screen controls"></div></div>
           <div class="setting"><span class="setting-title">Training view</span><div class="toggle-row"><span>Show hitboxes</span><input id="debugToggle" type="checkbox" aria-label="Show hitboxes and hurtboxes"></div></div>
           <div class="setting"><span class="setting-title">New round</span><div class="toggle-row"><span>First to two wins</span><button id="restartButton" type="button" style="padding:5px 9px;font-size:10px">RESTART ↻</button></div></div>
           <div class="setting"><span class="setting-title">Arcade note</span><div style="margin-top:8px;color:#8292ae;font:10px ui-monospace,monospace">Sound begins after your first input.</div></div>
@@ -139,7 +140,7 @@
     const rand=(a,b)=>a+Math.random()*(b-a);
     const overlap=(a,b)=>a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;
     const keys=new Set(),pressed=new Set();
-    let mode='cpu',difficulty='easy',debug=false,showTouch=false;
+    let mode='cpu',difficulty='easy',debug=false,showTouch=true;
     let frame=0,accumulator=0,hitStop=0,round=1,roundWins=[0,0],timer=99,timerFrames=0,roundWinner=-1,endReason='K.O.!';
     let phase='intro',phaseTicks=0,score=[0,0],combo=[0,0],comboTicks=[0,0],shake=0;
     const clouds=Array.from({length:11},(_,i)=>({x:(i*59+rand(0,35))%W,y:23+(i%5)*18,w:42+rand(0,38),speed:.08+rand(0,.17),tone:i%3}));
@@ -196,11 +197,11 @@
     function syncSoundButton(){const b=document.getElementById('soundButton');b.textContent=audio.enabled?'♫ SOUND ON':'♫ SOUND OFF';b.setAttribute('aria-label',audio.enabled?'Sound enabled':'Enable sound');}
     document.getElementById('soundButton').addEventListener('click',()=>{if(!audio.enabled){audio.userMuted=false;audio.unlock();}else{audio.enabled=false;audio.userMuted=true;audio.stopMusic();if(audio.master)audio.master.gain.setTargetAtTime(0,audio.ctx.currentTime,.03);}syncSoundButton();});
     document.getElementById('settingsButton').addEventListener('click',e=>{const p=document.getElementById('settingsPanel'),open=p.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',String(open));});
-    document.getElementById('modeSelect').addEventListener('change',e=>{mode=e.target.value;document.getElementById('p2Touch').style.opacity=mode==='cpu'?'.42':'1';});
+    document.getElementById('modeSelect').addEventListener('change',e=>{mode=e.target.value;document.getElementById('p2Touch').hidden=mode==='cpu';});
     document.getElementById('difficultySelect').addEventListener('change',e=>difficulty=e.target.value);
     document.getElementById('debugToggle').addEventListener('change',e=>debug=e.target.checked);
     document.getElementById('touchToggle').addEventListener('change',e=>{showTouch=e.target.checked;document.getElementById('touchControls').classList.toggle('visible',showTouch);});
-    showTouch=window.matchMedia('(max-width: 500px), (pointer: coarse)').matches;document.getElementById('touchToggle').checked=showTouch;document.getElementById('touchControls').classList.toggle('visible',showTouch);
+    document.getElementById('p2Touch').hidden=mode==='cpu';document.getElementById('touchToggle').checked=showTouch;document.getElementById('touchControls').classList.toggle('visible',showTouch);
     for(const [id,type] of [['musicVolume','music'],['sfxVolume','sfx']])document.getElementById(id).addEventListener('input',e=>{const v=Number(e.target.value)/100;audio[type==='music'?'setMusic':'setSfx'](v);document.getElementById(type==='music'?'musicValue':'sfxValue').textContent=e.target.value+'%';});
     document.getElementById('restartButton').addEventListener('click',restartMatch);
     function restartMatch(){round=1;roundWins=[0,0];score=[0,0];combo=[0,0];comboTicks=[0,0];timer=99;timerFrames=0;roundWinner=-1;endReason='K.O.!';phase='intro';phaseTicks=0;hitStop=0;shake=0;particles.length=0;projectiles.length=0;fighters[0]=makeFighter(0,143);fighters[1]=makeFighter(1,337);unlockAudio();}

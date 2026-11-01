@@ -4,7 +4,7 @@ A standalone, pixel-art rooftop fighting game made with Canvas 2D and procedural
 
 ## Play
 
-Open `index.html` in a browser. A match begins after the short round intro. Press a key, tap the screen, or use a touch button to enable sound. On mobile, the touch controls appear automatically. Use **Options** to change match mode, CPU difficulty, audio levels, touch controls, and hitbox display.
+Open `index.html` in a browser. A match begins after the short round intro. Press a key, tap the screen, or use an on-screen button to enable sound. WASD and click/touch controls are visible by default. Use **Options** to change match mode, CPU difficulty, audio levels, on-screen controls, and hitbox display.
 
 ## Controls
 
