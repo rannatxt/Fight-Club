@@ -13,7 +13,7 @@
 <body>
   <main class="game-shell">
     <section class="game-stage" id="gameStage" aria-label="Odysseus: Shadow of Ithaca fighting game">
-      <canvas id="arena" width="1920" height="1080" aria-label="Animated fighting game arena"></canvas>
+      <canvas id="arena" width="1920" height="1080" aria-label="Animated epic fighting game arena"></canvas>
       <div class="vignette"></div><div class="scanlines"></div><div class="screen-glint"></div>
 
       <div class="hud" id="matchHud" hidden>
@@ -39,7 +39,15 @@
         <button class="move-key up-key" data-hold="w" type="button" aria-label="Jump">▲</button>
         <button class="move-key left-key" data-hold="a" type="button" aria-label="Move left">◀</button><button class="move-key guard-key" data-hold="i" type="button" aria-label="Guard">◆</button><button class="move-key right-key" data-hold="d" type="button" aria-label="Move right">▶</button><button class="move-key down-key" data-hold="s" type="button" aria-label="Duck">▼</button>
       </div>
-      <div class="control-hint" id="controlHint" hidden><span class="key">A</span> <span class="key">D</span> MOVE&nbsp; · &nbsp;<span class="key">W</span> JUMP&nbsp; · &nbsp;<span class="key">S</span> DUCK<br><span class="key">O</span> PUNCH&nbsp; · &nbsp;<span class="key">P</span> KICK&nbsp; · &nbsp;<span class="key">Q</span> WEAPON&nbsp; · &nbsp;<span class="key">I</span> GUARD</div>
+      <aside class="control-hint" id="controlHint" aria-label="Keyboard controls" hidden>
+        <div class="control-guide-title">KEYBOARD CONTROLS</div>
+        <div class="control-guide-row"><span class="control-guide-keys"><kbd class="key">W</kbd><kbd class="key">A</kbd><kbd class="key">S</kbd><kbd class="key">D</kbd></span><span>MOVE</span></div>
+        <div class="control-guide-row"><span class="control-guide-keys"><kbd class="key">O</kbd></span><span>PUNCH</span></div>
+        <div class="control-guide-row"><span class="control-guide-keys"><kbd class="key">P</kbd></span><span>KICK</span></div>
+        <div class="control-guide-row"><span class="control-guide-keys"><kbd class="key">Q</kbd></span><span>WEAPON</span></div>
+        <div class="control-guide-row"><span class="control-guide-keys"><kbd class="key">I</kbd></span><span>BLOCK</span></div>
+        <div class="control-guide-foot">ESC · PAUSE</div>
+      </aside>
       <div class="streak" id="streakPanel" hidden>ROUNDS SURVIVED<strong id="streakValue">0</strong></div>
       <button class="audio-button" id="audioButton" type="button" aria-label="Enable arcade sound">♫ SOUND OFF</button>
       <div class="round-callout" id="roundCallout" hidden></div>
@@ -47,13 +55,13 @@
       <div class="overlay" id="startOverlay">
         <div class="menu-card">
           <div class="menu-head">
-            <div><div class="eyebrow" id="gameEyebrow">ONE PLAYER · GREEK LEGEND SURVIVAL</div><h1>ODYSSEUS:<br><em>SHADOW OF ITHACA</em></h1><p class="tagline" id="tagline">Fight through Greek legends. Choose a hero, master your weapon, earn coins, and face a boss every third round.</p></div>
+            <div><div class="eyebrow" id="gameEyebrow">ONE PLAYER · EPIC SURVIVAL</div><h1>ODYSSEUS:<br><em>SHADOW OF ITHACA</em></h1><p class="tagline" id="tagline">Choose your champion, master your weapon, and survive the boss rounds across the ancient world.</p></div>
             <div class="record-card"><div class="record-label">All-time best</div><div class="record-score" id="menuBest">000000</div><div class="record-detail"><span id="menuRounds">0</span> rounds · top survivor</div><div class="record-detail wallet-line">◉ <span id="menuCoins">0</span> coins</div></div>
           </div>
-          <nav class="menu-tabs" aria-label="Main menu"><button class="tab-button selected" id="gameTab" type="button">GAME</button><button class="tab-button" id="aboutTab" type="button">ABOUT</button><button class="tab-button" id="languageButton" type="button" aria-label="Change language">EN / IT</button></nav>
-          <div class="section-bar"><span class="section-title">Choose your arena</span><span class="section-note">Ancient World · 10 stages</span></div>
+          <nav class="menu-tabs" aria-label="Main menu"><button class="tab-button selected" id="gameTab" type="button">GAME</button><button class="tab-button" id="aboutTab" type="button">ABOUT</button><fieldset class="language-radio-group" aria-label="Choose language"><legend>LANGUAGE</legend><label><input type="radio" name="language" value="en" checked><span>EN</span></label><label><input type="radio" name="language" value="kn"><span>ಕನ್ನಡ</span></label><label><input type="radio" name="language" value="hi"><span>हिन्दी</span></label></fieldset></nav>
+          <div class="section-bar"><span class="section-title">Choose your arena</span><span class="section-note">Ancient World · 10 arenas</span></div>
           <div class="stage-grid">
-            <button class="stage-card selected" type="button" data-stage="ithaca" style="--stage-glow:#f4d384"><span class="stage-selected">✦</span><span class="stage-emoji">🌙</span><span class="stage-name">Ithaca · Moonlit Shore</span><span class="stage-country">GREECE · HOMELAND</span><span class="stage-desc">A rocky island court beneath a crescent moon.</span></button>
+            <button class="stage-card selected" type="button" data-stage="ithaca" style="--stage-glow:#f4d384"><span class="stage-selected">✦</span><span class="stage-emoji">☀️</span><span class="stage-name">Ithaca · Sunlit Shore</span><span class="stage-country">GREECE · HOMELAND</span><span class="stage-desc">A radiant sun crowns the island arena.</span></button>
             <button class="stage-card" type="button" data-stage="sparta" style="--stage-glow:#e58b68"><span class="stage-selected">✦</span><span class="stage-emoji">🛡️</span><span class="stage-name">Sparta · Red Pass</span><span class="stage-country">GREECE · LACONIA</span><span class="stage-desc">Bronze shields and a mountain citadel at dusk.</span></button>
             <button class="stage-card" type="button" data-stage="troy" style="--stage-glow:#f2aa63"><span class="stage-selected">✦</span><span class="stage-emoji">🐎</span><span class="stage-name">Troy · Siege Gate</span><span class="stage-country">ANATOLIA · AEGEAN</span><span class="stage-desc">The old city walls glow above the battlefield.</span></button>
             <button class="stage-card" type="button" data-stage="sicily" style="--stage-glow:#f08b61"><span class="stage-selected">✦</span><span class="stage-emoji">🌋</span><span class="stage-name">Sicily · Etna Forge</span><span class="stage-country">ITALIA · SICILIA</span><span class="stage-desc">An ancient port, olive groves, and Mount Etna.</span></button>
@@ -64,6 +72,7 @@
             <button class="stage-card" type="button" data-stage="tokyo" style="--stage-glow:#ff78b4"><span class="stage-selected">✦</span><span class="stage-emoji">🏮</span><span class="stage-name">Neon Crossing</span><span class="stage-country">Japan · Tokyo</span><span class="stage-desc">A rain-slick crossing under the city lights.</span></button>
             <button class="stage-card" type="button" data-stage="london" style="--stage-glow:#9ed5ff"><span class="stage-selected">✦</span><span class="stage-emoji">🌉</span><span class="stage-name">Clocktower Bridge</span><span class="stage-country">UK · London</span><span class="stage-desc">A riverside bout below the old clock tower.</span></button>
           </div>
+          <div class="arena-picker" aria-label="Arena selector"><button class="arena-arrow" id="arenaPrev" type="button" aria-label="Previous arena">‹</button><div class="arena-radios" id="arenaRadios" role="radiogroup" aria-label="Choose arena"></div><button class="arena-arrow" id="arenaNext" type="button" aria-label="Next arena">›</button></div>
           <div class="section-bar avatar-heading"><span class="section-title">Build your fighter</span><span class="section-note">Name · temperament · outfit</span></div>
           <div class="avatar-grid">
             <label class="avatar-field">Choose fighter<select id="heroSelect"><option value="odysseus">Odysseus · Ithacan king</option><option value="achilles">Achilles · Swift champion</option><option value="hector">Hector · defender of Troy</option><option value="atalanta">Atalanta · huntress</option><option value="tommy">Tommy Vercetti · Vice City</option><option value="trevor">Trevor Phillips · desert outlaw</option><option value="goku">Goku · Saiyan fighter</option><option value="ben10">Ben 10 · hero</option><option value="ryu">Ryu · wandering fighter</option><option value="ninja">Kage · shadow ninja</option></select></label>
@@ -84,7 +93,7 @@
 
       <div class="overlay" id="pauseOverlay" hidden><div class="pause-card"><div class="result-mark">⏸</div><div class="result-title">PAUSED</div><p class="low-copy">Take a breath, fighter. Your run is waiting.</p><button class="primary-button" id="resumeButton" type="button">RESUME FIGHT</button></div></div>
       <div class="overlay" id="finishOverlay" hidden><div class="result-card"><div class="result-mark" id="resultMark">✦</div><div class="eyebrow">SURVIVAL CIRCUIT COMPLETE</div><div class="result-title" id="resultTitle">RUN ENDED</div><div class="result-sub" id="resultSub">The arena remembers your name.</div><div class="stat-grid"><div class="stat-box"><div class="stat-value" id="finalScore">0</div><div class="stat-caption">Your score</div></div><div class="stat-box"><div class="stat-value" id="finalRounds">0</div><div class="stat-caption">Rounds survived</div></div><div class="stat-box"><div class="stat-value" id="finalCoins">0</div><div class="stat-caption">Coins earned</div></div><div class="stat-box"><div class="stat-value" id="finalBest">0</div><div class="stat-caption">Personal best</div></div></div><div class="result-actions"><button class="primary-button" id="rematchButton" type="button">FIGHT AGAIN</button><button class="secondary-button" id="arenaButton" type="button">CHANGE ARENA</button></div></div></div>
-      <div class="overlay" id="aboutOverlay" hidden><article class="creator-card"><div><div class="eyebrow">THE CREATOR · IL CREATORE</div><h2 style="margin:7px 0;color:#fff;font-size:clamp(28px,4vw,48px)">RANNA</h2><p class="creator-copy">Odysseus: Shadow of Ithaca is a Greek-myth inspired arcade fighter made by <strong>Ranna</strong>. Choose your champion, defend your homeland, and survive the boss rounds across the ancient world.</p><p class="creator-copy">A journey through heroes, myth, and arcade battles. <em>Un viaggio tra eroi, miti e battaglie arcade.</em></p><div class="creator-actions"><button class="primary-button" id="aboutBackButton" type="button">BACK TO GAME</button><a class="secondary-button" href="https://rannatxt.lovable.app/" target="_blank" rel="noopener noreferrer">CREATOR SITE</a></div></div><iframe class="creator-frame" title="Ranna's creator profile and portrait" src="https://rannatxt.lovable.app/" loading="lazy" referrerpolicy="no-referrer"></iframe></article></div>
+      <div class="overlay" id="aboutOverlay" hidden><article class="creator-card"><div class="eyebrow" id="aboutEyebrow">ABOUT THE CREATOR</div><h2 style="margin:7px 0;color:#fff;font-size:clamp(28px,4vw,48px)">RANNA</h2><p class="creator-copy" id="aboutDescription">Odysseus: Shadow of Ithaca is a Greek-myth inspired arcade fighter created by Ranna. Choose your champion, defend your homeland, and survive the boss rounds across the ancient world.</p><p class="creator-copy" id="aboutMotto">A journey through heroes, myth, and arcade battles.</p><div class="creator-actions"><button class="primary-button" id="aboutBackButton" type="button">BACK TO GAME</button></div></article></div>
     </section>
   </main>
 

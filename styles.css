@@ -194,3 +194,138 @@
     .round-callout{border-color:#ff4a5d;background:linear-gradient(90deg,transparent,#09090bf2 20%,#09090bf2 80%,transparent);color:#ff596a;text-shadow:0 3px #280d12,0 0 18px #ff3d5066}
     .result-title{color:#ff596a;text-shadow:2px 2px #520f1b}
     .creator-frame{background:#0a0a0c;border-color:#ffffff55}
+
+    /* Monochrome desktop fight HUD. Keyboard keys replace floating touch pads. */
+    :root{--ice:#fff;--cyan:#fff;--pink:#fff;--gold:#fff;--ink:#fff;--muted:#aeb0b6;--panel:#101012}
+    html,body{background:#050506;color:#fff}
+    .game-shell{background:radial-gradient(ellipse at 50% 0,#202023 0,#09090b 56%,#030304 100%)}
+    .game-stage{background:#080809;box-shadow:0 26px 100px #000,0 0 0 1px #ffffff3a}
+    .fighter-card,.center-hud,.hud-button,.stage-label,.score-strip,.audio-button{border-color:#ffffff55;background:#09090bdc;color:#f6f6f8}
+    .center-hud{border-color:#ffffff74;background:#09090bf2;box-shadow:0 0 22px #ffffff10,inset 0 1px #ffffff22}
+    #playerHealth,#cpuHealth{background:linear-gradient(90deg,#fff 0,#dedee2 56%,#85858d 100%);box-shadow:0 0 12px #fff5}
+    .clock,.record-score,.streak strong,.round-text,.eyebrow,.coin-hud,.score-strip strong,.stage-country,.stat-value,.round-stars,.stage-selected{color:#fff;text-shadow:0 0 12px #ffffff35}
+    h1{color:#fff;text-shadow:0 3px 24px #fff2}h1 em{color:#fff}
+    .menu-card,.result-card,.pause-card,.creator-card{border-color:#ffffff65;background:linear-gradient(155deg,#171719f5,#070708fa 76%);box-shadow:0 22px 70px #000e,0 0 28px #ffffff0c,inset 0 1px #fff2}
+    .stage-card,.skill-button,.tab-button,.avatar-field input,.avatar-field select,.forge-row,.music-load-row,.stat-box{border-color:#ffffff32;background:#101012;color:#f2f2f4}
+    .stage-card{--stage-glow:#fff!important}.stage-emoji{filter:grayscale(1)}
+    .stage-card.selected,.skill-button.selected,.tab-button.selected{border-color:#fff;background:#242427;box-shadow:0 0 0 1px #fff3,0 0 18px #fff1}
+    .stage-selected{color:#fff}.portrait{filter:grayscale(1);border-color:#fff8}
+    .start-button,.primary-button{border:1px solid #fff;border-radius:13px;background:linear-gradient(145deg,#fff,#d9d9dc);color:#09090b;box-shadow:0 5px 0 #77777d,0 10px 24px #0009,inset 0 1px #fff}
+    .start-button:hover,.primary-button:hover{filter:brightness(1.12);transform:translateY(-1px)}
+    .secondary-button,.hud-button,.tab-button{border-color:#ffffff77;background:#101012;color:#fff}
+    .secondary-button:hover,.hud-button:hover,.tab-button:hover{border-color:#fff;color:#fff;background:#242427}
+    .round-callout{border-color:#fff;background:linear-gradient(90deg,transparent,#09090bf2 20%,#09090bf2 80%,transparent);color:#fff;text-shadow:0 3px #111,0 0 18px #fff5}
+    .result-title{color:#fff;text-shadow:0 2px 20px #fff4}
+    .fighter-card.cpu.boss{border-color:#fff;box-shadow:0 0 24px #ffffff25,inset 0 1px #fff4}
+    .fighter-card.cpu.boss #cpuHealth{background:linear-gradient(90deg,#777,#ddd,#fff);box-shadow:0 0 12px #ffffff70}
+    .fighter-name>span{color:#fff!important}.stage-label{border-left-color:#fff!important}.result-mark{filter:grayscale(1)}
+    button:focus-visible{outline-color:#fff}
+    #gameControls,#moveControls,#topTools,.audio-button{display:none!important}
+    .control-hint{left:auto;right:2.5%;top:18%;bottom:auto;width:clamp(174px,16vw,226px);display:flex;flex-direction:column;gap:9px;padding:14px;border:1px solid #ffffff70;border-radius:17px;background:#080809e8;color:#fff;box-shadow:0 16px 42px #000b,inset 0 1px #ffffff22;backdrop-filter:blur(18px);font:700 clamp(8px,.73vw,10px)/1.15 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.12em}
+    .control-guide-title{padding-bottom:8px;border-bottom:1px solid #ffffff38;color:#fff;font:800 clamp(8px,.72vw,10px)/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.16em}
+    .control-guide-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:22px;color:#d9d9dd}
+    .control-guide-keys{display:flex;align-items:center;gap:3px}
+    .control-guide-row .key{display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 5px;border:1px solid #ffffffaa;border-radius:6px;background:linear-gradient(180deg,#38383c,#141416);color:#fff;font:800 10px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:0;box-shadow:0 2px 0 #000,inset 0 1px #fff3}
+    .control-guide-foot{padding-top:7px;border-top:1px solid #ffffff27;color:#aeb0b6;font-size:8px;letter-spacing:.14em}
+    .health-fill{transition:width .18s cubic-bezier(.2,.75,.25,1)}
+    @media(max-width:720px){.control-hint{right:1.5%;top:13%;width:145px;padding:10px;gap:6px}.control-guide-row{min-height:20px}.control-guide-row .key{min-width:21px;height:21px}}
+
+    /* Monochrome chrome pass: dramatic contrast, moving silver light, no extra hues. */
+    @keyframes chromeSweep{0%{background-position:180% 0}100%{background-position:-80% 0}}
+    @keyframes whitePulse{0%,100%{box-shadow:0 0 0 1px #fff2,0 0 14px #fff1}50%{box-shadow:0 0 0 1px #fff7,0 0 28px #fff3}}
+    @keyframes hudShine{0%,72%,100%{transform:translateX(-160%) skewX(-18deg);opacity:0}78%{opacity:.8}92%{transform:translateX(250%) skewX(-18deg);opacity:0}}
+    .game-shell{background:radial-gradient(ellipse at 50% 0,#252528 0,#111113 34%,#050506 72%,#000 100%)}
+    .game-stage{border:1px solid #ffffff55;box-shadow:0 0 0 1px #000,0 26px 100px #000,0 0 44px #ffffff12,inset 0 0 34px #fff1}
+    .vignette{background:radial-gradient(ellipse at 50% 42%,transparent 42%,#0000009c 100%)}
+    .screen-glint{opacity:.11;background-size:240% 100%;animation:chromeSweep 12s linear infinite}
+    .hud{gap:1.5%;top:2.6%}
+    .fighter-card,.center-hud{position:relative;overflow:hidden;border:1px solid #ffffff75;border-radius:16px 5px 16px 5px;background:linear-gradient(130deg,#29292dE8,#101012E8 48%,#050506F5);box-shadow:0 16px 34px #000c,inset 0 1px #fff5,inset 0 -1px #ffffff15}
+    .fighter-card:after,.center-hud:after{content:"";position:absolute;top:-30%;bottom:-30%;left:0;width:32%;background:linear-gradient(90deg,transparent,#ffffff20,transparent);transform:translateX(-160%) skewX(-18deg);animation:hudShine 8s ease-in-out infinite;pointer-events:none}
+    .fighter-card.cpu:after{animation-delay:2.7s}
+    .center-hud{border-color:#fff;background:linear-gradient(180deg,#303034F2,#080809F7 74%);box-shadow:0 12px 36px #000d,0 0 30px #fff1,inset 0 1px #fff8}
+    .round-text{font-size:clamp(8px,.86vw,12px);letter-spacing:.22em;color:#d8d8dc}
+    .clock{font-size:clamp(32px,4.4vw,58px);font-weight:1000;letter-spacing:-.08em;color:#fff;text-shadow:0 0 24px #fff6,0 3px #000}
+    .health-track{height:clamp(11px,1.2vw,16px);border:1px solid #ffffff99;border-radius:4px;background:#030304;box-shadow:inset 0 2px 5px #000,0 1px #fff2}
+    .health-fill{position:relative;overflow:hidden;border-radius:2px;background:linear-gradient(180deg,#fff 0,#eeeeef 45%,#8d8d93 100%)!important;box-shadow:0 0 15px #fff8!important}
+    .health-fill:after{content:"";position:absolute;inset:-40% auto -40% 0;width:22%;background:linear-gradient(90deg,transparent,#fff,transparent);transform:skewX(-22deg);animation:hudShine 3.8s ease-in-out infinite}
+    .cpu .health-fill{margin-left:auto}
+    .fighter-name{font-size:clamp(10px,1.12vw,16px);letter-spacing:.13em;text-shadow:0 1px 12px #fff3}
+    .fighter-sub,.meter-foot{color:#bfc0c4;letter-spacing:.16em}
+    .portrait{border-radius:12px 4px 12px 4px;box-shadow:inset 0 0 18px #ffffff28,0 0 24px #fff2}
+    .stage-label,.score-strip{border:1px solid #ffffff75;border-radius:11px 3px 11px 3px;background:linear-gradient(135deg,#151517eb,#030304e8);box-shadow:0 12px 28px #0009,inset 0 1px #fff3;letter-spacing:.16em}
+    .control-hint{border:1px solid #fff;border-radius:14px 4px 14px 4px;background:linear-gradient(145deg,#2a2a2eea,#080809f5 58%);box-shadow:0 18px 48px #000d,0 0 28px #fff2,inset 0 1px #fff7;animation:whitePulse 4s ease-in-out infinite}
+    .control-guide-title{font-size:clamp(9px,.8vw,11px);color:#fff;letter-spacing:.2em}
+    .control-guide-row{color:#f0f0f2;font-size:clamp(8px,.74vw,10px);letter-spacing:.16em}
+    .control-guide-row .key{min-width:27px;height:27px;border-radius:7px;border-color:#fff;background:linear-gradient(180deg,#fff,#bababe 54%,#55555b);color:#050506;box-shadow:0 3px 0 #38383c,0 0 16px #fff2,inset 0 1px #fff;font-size:11px}
+    .control-guide-foot{color:#bfc0c4}
+    .menu-card,.result-card,.pause-card,.creator-card{border:1px solid #ffffff88;border-radius:24px 7px 24px 7px;background:linear-gradient(145deg,#262629f7,#101012f8 38%,#050506fc);box-shadow:0 30px 100px #000e,0 0 54px #fff1,inset 0 1px #fff6}
+    .menu-card:before,.result-card:before{border-color:#ffffff35;inset:8px;border-radius:18px 4px 18px 4px}
+    h1{font-size:clamp(34px,5vw,68px);letter-spacing:-.055em;text-shadow:0 3px 24px #fff3,0 8px #000}
+    h1 em{letter-spacing:-.065em;color:#fff;text-shadow:0 0 22px #fff4}
+    .eyebrow{letter-spacing:.23em}
+    .start-button,.primary-button{position:relative;overflow:hidden;border:1px solid #fff;border-radius:14px 4px 14px 4px;background:linear-gradient(155deg,#fff 0,#e8e8eb 38%,#8d8d94 100%);color:#080809;box-shadow:0 5px 0 #525258,0 14px 32px #000b,inset 0 1px #fff;font-weight:1000;letter-spacing:.18em}
+    .start-button:after,.primary-button:after{content:"";position:absolute;inset:-25% auto -25% 0;width:28%;background:linear-gradient(90deg,transparent,#fff9,transparent);transform:translateX(-180%) skewX(-18deg);transition:transform .65s ease}
+    .start-button:hover:after,.primary-button:hover:after{transform:translateX(480%) skewX(-18deg)}
+    .secondary-button,.tab-button{border-radius:10px 3px 10px 3px;letter-spacing:.16em}
+    .stage-card{border-radius:15px 4px 15px 4px;background:linear-gradient(150deg,#222225,#09090b 78%);box-shadow:inset 0 1px #fff2,0 10px 22px #0005}
+    .stage-card.selected,.skill-button.selected,.tab-button.selected{animation:whitePulse 3.5s ease-in-out infinite}
+    .round-callout{border-top:1px solid #fff;border-bottom:1px solid #fff;background:linear-gradient(90deg,transparent,#000000ee 18%,#000000ee 82%,transparent);font-size:clamp(23px,4.7vw,62px);letter-spacing:.16em;text-shadow:0 3px #000,0 0 30px #fff8}
+    .round-stars{letter-spacing:.28em}
+    @media(prefers-reduced-motion:reduce){.screen-glint,.fighter-card:after,.center-hud:after,.health-fill:after,.control-hint,.stage-card.selected,.skill-button.selected,.tab-button.selected{animation:none!important}}
+
+    /* Warm white and arcade gold accent palette. */
+    :root{--ice:#fff;--cyan:#fff;--pink:#ffd84d;--gold:#ffd84d;--ink:#fff;--muted:#d0c99f;--panel:#101012}
+    .clock,.fighter-name,.record-score,.round-stars,.score-strip strong,.stage-selected,.stat-value{color:#fff;text-shadow:0 0 18px #ffd84d70,0 2px #000}
+    .round-text,.eyebrow,.coin-hud,.stage-country{color:#ffe37a;text-shadow:0 0 14px #ffd84d55}
+    .center-hud{border-color:#ffe37a;background:linear-gradient(180deg,#2a2617f2,#080809f7 74%);box-shadow:0 12px 36px #000d,0 0 30px #ffd84d22,inset 0 1px #fff8}
+    .clock{text-shadow:0 0 24px #ffd84d8a,0 3px #000}
+    #playerHealth{background:linear-gradient(90deg,#fff 0,#fff2b3 52%,#ffd84d 100%)!important;box-shadow:0 0 15px #ffd84d90!important}
+    #cpuHealth{background:linear-gradient(90deg,#ffd84d 0,#fff2b3 52%,#fff 100%)!important;box-shadow:0 0 15px #ffd84d90!important}
+    .health-track{border-color:#ffe58a}
+    .control-hint{border-color:#ffe58a;box-shadow:0 18px 48px #000d,0 0 28px #ffd84d2b,inset 0 1px #fff7}
+    .control-guide-title,.control-guide-foot{color:#ffe37a}
+    .control-guide-row .key{border-color:#fff4bd;background:linear-gradient(180deg,#fff8d9,#ffd84d 60%,#bc8d16);color:#09090b;box-shadow:0 3px 0 #725718,0 0 18px #ffd84d28,inset 0 1px #fff}
+    .stage-card.selected,.skill-button.selected,.tab-button.selected{border-color:#ffe37a;background:linear-gradient(145deg,#292511,#15130c);box-shadow:0 0 0 1px #ffd84d5c,0 0 22px #ffd84d20}
+    .stage-selected{color:#ffe37a}
+    .start-button,.primary-button{background:linear-gradient(155deg,#fff 0,#fff8d7 36%,#ffd84d 100%);border-color:#fff8d7;box-shadow:0 5px 0 #80631b,0 14px 32px #000b,inset 0 1px #fff}
+    .secondary-button:hover,.hud-button:hover,.tab-button:hover{border-color:#ffe37a;color:#fff8d7;background:#28230f}
+    .round-callout{border-color:#ffe37a;color:#fff5c2;text-shadow:0 3px #000,0 0 30px #ffd84dbb}
+    .fighter-card,.center-hud,.control-hint{--chrome-highlight:#ffe37a}
+    .fighter-card:after,.center-hud:after{background:linear-gradient(90deg,transparent,#fff9,#ffe37a70,transparent)}
+    .health-fill:after{background:linear-gradient(90deg,transparent,#fff,#ffe37a,transparent)}
+    .game-stage{box-shadow:0 0 0 1px #ffe37a40,0 26px 100px #000,0 0 44px #ffd84d18,inset 0 0 34px #fff1}
+    .creator-card{display:block;width:min(94%,760px);text-align:center}.creator-actions{justify-content:center}
+    .menu-tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.menu-tabs>.tab-button{min-width:84px}
+    .language-radio-group{display:flex;align-items:center;gap:4px;margin:0 0 0 auto;padding:4px 6px;border:1px solid #ffffff38;border-radius:12px 4px 12px 4px;background:#09090bcc}
+    .language-radio-group legend{padding:0 5px;color:#ffe37a;font:800 8px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.17em}
+    .language-radio-group label{position:relative;display:block;cursor:pointer}
+    .language-radio-group input{position:absolute;width:1px;height:1px;opacity:0}
+    .language-radio-group label span{display:block;padding:6px 8px;border:1px solid transparent;border-radius:7px;color:#d5d5d8;font:800 clamp(8px,.75vw,10px)/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.06em}
+    .language-radio-group input:checked+span{border-color:#ffe37a;background:linear-gradient(145deg,#fff8d8,#ffd84d);color:#080809;box-shadow:0 0 14px #ffd84d35}
+    .language-radio-group input:focus-visible+span{outline:2px solid #fff;outline-offset:2px}
+    .stage-grid{display:block;width:min(100%,780px);margin:0 auto}
+    .stage-card{display:none;width:100%;min-height:118px;padding:18px 22px;grid-template-columns:76px minmax(0,1fr);grid-template-rows:auto auto auto;align-items:center;column-gap:15px;text-align:left}
+    .stage-card.selected{display:grid}
+    .stage-card .stage-emoji{grid-column:1;grid-row:1/4;justify-self:center;font-size:42px}
+    .stage-card .stage-name,.stage-card .stage-country,.stage-card .stage-desc{grid-column:2}
+    .stage-card .stage-name{font-size:clamp(17px,2vw,25px)}
+    .stage-card .stage-country{font-size:9px;letter-spacing:.17em}
+    .stage-card .stage-desc{display:block;margin-top:5px;color:#d4d4d7;font-size:clamp(9px,.9vw,12px);line-height:1.4}
+    .arena-picker{display:flex;align-items:center;justify-content:center;gap:clamp(14px,2.4vw,28px);margin:10px auto 15px}
+    .arena-arrow{display:grid;place-items:center;width:42px;height:42px;border:1px solid #ffe37a;border-radius:50%;background:linear-gradient(145deg,#fff8d8,#ffd84d);color:#080809;font:900 29px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;box-shadow:0 4px 0 #80631b,0 0 18px #ffd84d35;cursor:pointer;transition:transform .12s,filter .12s}
+    .arena-arrow:hover{filter:brightness(1.12);transform:scale(1.07)}.arena-arrow:active{transform:scale(.94)}
+    .arena-radios{display:flex;align-items:center;justify-content:center;gap:clamp(6px,1vw,11px)}
+    .arena-radio{position:relative;display:grid;place-items:center;width:22px;height:22px;cursor:pointer}
+    .arena-radio input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+    .arena-dot{width:8px;height:8px;border:1px solid #e6e6e8;border-radius:50%;background:#37373a;transition:transform .14s,background .14s,box-shadow .14s}
+    .arena-radio input:checked+.arena-dot{transform:scale(1.35);border-color:#fff3bc;background:#ffd84d;box-shadow:0 0 12px #ffd84d9c}
+    .arena-radio input:focus-visible+.arena-dot{outline:2px solid #fff;outline-offset:3px}
+    @media(max-width:720px){.menu-tabs{gap:5px}.menu-tabs>.tab-button{min-width:65px}.language-radio-group{margin-left:auto}.language-radio-group label span{padding:6px 5px}.stage-card{min-height:106px;padding:13px;grid-template-columns:56px minmax(0,1fr);column-gap:10px}.stage-card .stage-emoji{font-size:32px}.arena-picker{margin:8px auto 12px}}
+    .menu-tabs>.tab-button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+    #gameTab::before{content:'✦';color:#ffe37a;font-size:.9em}
+    #aboutTab::before{content:'☾';color:#ffe37a;font-size:1.05em}
+    .language-radio-group legend::before{content:'☼  ';color:#fff5bd;font-size:1.1em}
+    .section-title::before{content:'✦';display:inline-block;margin-right:7px;color:#ffe37a;font-size:.8em;text-shadow:0 0 10px #ffd84d85}
+    .creator-card::before{content:'☾  ✦  ☼';display:block;margin:0 auto 12px;color:#ffe37a;font-size:13px;letter-spacing:.55em;text-shadow:0 0 16px #ffd84d78}
+    .language-radio-group{border-color:#ffffff46;box-shadow:0 5px 16px #0007,inset 0 1px #ffffff0b}
+    .language-radio-group:focus-within{border-color:#ffe37a;box-shadow:0 0 0 2px #ffd84d22,0 7px 22px #0008}

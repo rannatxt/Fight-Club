@@ -6,16 +6,16 @@ A full-screen, single-player 2D arena fighter built with Canvas 2D, CSS, and Web
 
 Serve the project folder with any static web server. For Python, run `py -m http.server 8000` from this folder, then open `http://localhost:8000`.
 
-Choose **Start Fight** to enter fullscreen. Pick an arena, fighter, outfit, temperament, and weapon first. Your profile, coins, and records save in the browser.
+Choose **Start Fight** to enter fullscreen. Select an arena with the left/right arrows or its radio dot, then choose a fighter, outfit, temperament, and weapon. The language radio offers English, Kannada, and Hindi. Your profile, coins, and records save in the browser.
 
 ## Controls
 
 - **A / D:** move; **W:** jump; **S:** crouch; **I:** block
 - **O:** punch; **P:** kick; **Q:** weapon strike
 - **Esc:** pause or resume
-- On phones, rotate to landscape. Use the movement pad and the round attack buttons.
+- The in-fight screen uses a keyboard guide in the upper-right corner. Floating touch controls are hidden for the desktop presentation.
 
-Attacks have active frames and collision checks, with hit-stop, impact sparks, knockback, blocking, and knockdown recovery. A CPU rival grows stronger across the survival rounds, including a boss encounter every third round.
+Attacks have active frames and collision checks, with hit-stop, impact sparks, knockback, blocking, and knockdown recovery. A new rival appears each round; their weapon, health, and aggression rise through the run, with a boss encounter every third round.
 
 ## Fighters and arenas
 
