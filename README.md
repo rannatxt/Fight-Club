@@ -1,38 +1,38 @@
 # Odysseus: Shadow of Ithaca
 
-A standalone 2D arcade fighter built with Canvas, CSS, and Web Audio. The entire game runs from `index.html`; no build step or asset downloads are required.
+A full-screen, single-player 2D arena fighter built with Canvas 2D, CSS, and Web Audio. It runs as a lightweight static site with no framework or build step.
 
-## Play
+## Run locally
 
-Open `index.html` in a modern browser and choose **Start Fight**. The game requests fullscreen when a match begins. Choose a Greek arena, fighter, outfit, personality, and weapon first. Use **EN / IT** to switch the menu between English and Italian. The **About** tab includes the creator profile link and embedded page.
+Serve the project folder with any static web server. For Python, run `py -m http.server 8000` from this folder, then open `http://localhost:8000`.
 
-## Fighters and arenas
-
-Select from Odysseus, Achilles, Hector, Atalanta, Tommy Vercetti, Trevor Phillips, Goku, Ben 10, Ryu, or Kage. The game draws its character designs and animation in Canvas 2D.
-
-Fight in Ithaca, Sparta, Troy, and Sicily, or revisit the bonus stages: China’s Dragon Tower, India’s Vidhana Soudha, the USA Main Event Dome, Dubai’s Burj Afterdark, Tokyo’s Neon Crossing, and London’s Clocktower Bridge.
+Choose **Start Fight** to enter fullscreen. Pick an arena, fighter, outfit, temperament, and weapon first. Your profile, coins, and records save in the browser.
 
 ## Controls
 
-- **A / D:** move; **W:** jump; **S:** crouch; **I:** guard
+- **A / D:** move; **W:** jump; **S:** crouch; **I:** block
 - **O:** punch; **P:** kick; **Q:** weapon strike
-- On phones, rotate to landscape. Use the round movement pad on the left and the punch, kick, and weapon buttons on the right.
 - **Esc:** pause or resume
+- On phones, rotate to landscape. Use the movement pad and the round attack buttons.
 
-Punches, kicks, and weapon strikes use active hit frames and collision checks. Strong hits can knock fighters down; they fall, recover, and get back up. The AI opponent gets a larger health bar and stronger damage in boss rounds every third round.
+Attacks have active frames and collision checks, with hit-stop, impact sparks, knockback, blocking, and knockdown recovery. A CPU rival grows stronger across the survival rounds, including a boss encounter every third round.
 
-## Score, coins, and weapons
+## Fighters and arenas
 
-Survive rounds to earn coins and score. Your wallet, highest score, and round record save in the browser.
+Choose Odysseus, Achilles, Hector, Atalanta, Tommy Vercetti, Trevor Phillips, Goku, Ben 10, Ryu, or Kage. The game draws smooth shaded 2D characters and animated poses directly in Canvas. The presentation is stylized 2D artwork rather than photoreal captured humans.
 
-- **Katana:** included
-- **Naginata:** unlock for 120 coins
-- **Twin blades:** unlock for 250 coins
+Arenas include Ithaca, Sparta, Troy, Sicily, Dragon Tower, Vidhana Soudha, Main Event Dome, Burj Afterdark, Neon Crossing, and Clocktower Bridge.
 
 ## Music
 
-Choose **Load MP3** and select the `Ninja in the Night` theme from your device. It plays during fights and stops between rounds. The file stays on your device and must be selected again in a new browser session. Built-in synthesized music and hit sounds play when no MP3 is loaded.
+Use **Load MP3** to select a locally stored theme for fights. The selected file stays on the device and needs to be selected again in a new browser session. Procedural Web Audio music and sound effects are available without a music file.
+
+## Project files
+
+- `index.html` — page structure and game HUD
+- `styles.css` — responsive fullscreen UI and touch controls
+- `src/game.js` — Canvas rendering, animation, physics, combat, audio, and game state
 
 ## Deploy
 
-This is a static single-page game. Deploy the project folder to Vercel with the root directory set to the folder containing `index.html`; no build command or output directory is needed.
+This is a static site. Import the repository into Vercel with the project root set to this folder. No install or build command is required; serve the repository root as the output.
